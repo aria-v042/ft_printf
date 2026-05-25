@@ -26,12 +26,12 @@ DBG_OUT = debug
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	git submodule update --init
 	$(MAKE) -C $(LIB)
 	cp $(LIB)/$(LIB).a $(NAME)
 	ar -rcs $(NAME) $(OBJS)
 
 %.o: %.c
+	git submodule update --init
 	$(CC) $(CFLAGS) -c $< -o $@ -I $(LIB) 
 
 clean:
