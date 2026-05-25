@@ -11,13 +11,13 @@
 # **************************************************************************** #
 
 NAME = libftprintf.a
-LIB_DIR = ./libft
-SRCS_DIR = .
+LIB = libft
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = $(shell find $(SRCS_DIR) -maxdepth 1 -name '*.c')
+SRC_DIR = .
+SRCS = $(shell find $(SRC_DIR) -maxdepth 1 -name '*.c')
 OBJS = $(SRCS:.c=.o)
 
 TEST = test.c
@@ -25,18 +25,21 @@ DEBUG ?= $(or $(filter %.c, $(MAKECMDGOALS)), $(TEST))
 D_OUT = debug
 
 all: $(NAME)
-	$(MAKE) -C $(LIB_DIR)
 
 $(NAME): $(OBJS)
+	$(MAKE) -C $(LIB)
+	cp $(LIB)/$(LIB).a $(NAME)
 	ar -rcs $(NAME) $(OBJS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I$(LIB_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(LIB) 
 
 clean:
+	$(MAKE) clean -C $(LIB)
 	rm -f $(OBJS)
 
 fclean: clean
+	$(MAKE) fclean -C $(LIB)
 	rm -f $(NAME)
 
 re: fclean all
@@ -46,7 +49,7 @@ ifneq ($(filter %.c, $(MAKECMDGOALS)),)
 endif
 
 debug: all
-	$(CC) $(CFLAGS) -I$(LIB_DIR) -g $(DEBUG) $(NAME) -o $(D_OUT)
+	$(CC) $(CFLAGS) -g $(DEBUG) $(NAME) -o $(D_OUT) -I $(LIB) 
 	$(MAKE) fclean
 
 dclean: fclean
