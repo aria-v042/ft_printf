@@ -6,13 +6,13 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 03:33:06 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/25 03:38:10 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/25 03:54:54 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *, ...)
+int	ft_printf(const char *format, ...)
 {
 
 }

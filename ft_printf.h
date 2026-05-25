@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 03:38:26 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/25 03:43:51 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/25 03:54:43 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 
-int	ft_printf(const char *, ...);
+int	ft_printf(const char *format, ...);
 
 #endif
