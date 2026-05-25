@@ -6,7 +6,7 @@
 #    By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/23 22:59:04 by frodrig2          #+#    #+#              #
-#    Updated: 2026/05/25 00:45:44 by frodrig2         ###   ########.fr        #
+#    Updated: 2026/05/25 04:55:05 by frodrig2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ D_OUT = debug
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	git submodule update --init
 	$(MAKE) -C $(LIB)
 	cp $(LIB)/$(LIB).a $(NAME)
 	ar -rcs $(NAME) $(OBJS)
