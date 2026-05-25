@@ -20,9 +20,8 @@ SRC_DIR = .
 SRCS = $(shell find $(SRC_DIR) -maxdepth 1 -name '*.c')
 OBJS = $(SRCS:.c=.o)
 
-TEST = test.c
-DEBUG ?= $(or $(filter %.c, $(MAKECMDGOALS)), $(TEST))
-D_OUT = debug
+DBG_SRC ?= $(or $(filter %.c, $(MAKECMDGOALS)), ft_printf.c)
+DBG_OUT = debug
 
 all: $(NAME)
 
@@ -50,7 +49,7 @@ ifneq ($(filter %.c, $(MAKECMDGOALS)),)
 endif
 
 debug: all
-	$(CC) $(CFLAGS) -g $(DEBUG) $(NAME) -o $(D_OUT) -I $(LIB) 
+	$(CC) $(CFLAGS) -g $(DBG_SRC) $(NAME) -o $(D_OUT) -I $(LIB) 
 	$(MAKE) fclean
 
 dclean: fclean
