@@ -12,6 +12,11 @@
 
 #include "ft_printf.h"
 
+int	print_format(const char *format, va_list *argptr)
+{
+	// TODO
+}
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
@@ -23,7 +28,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			bytes_printed += // TODO
+			bytes_printed += print_format(*++format, &args); // TODO
 		}
 		else
 		{
