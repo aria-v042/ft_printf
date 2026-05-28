@@ -53,6 +53,6 @@ debug: all
 	$(MAKE) fclean
 
 dclean: fclean
-	rm -f $(D_OUT)
+	rm -f $(DBG_OUT)
 
 .PHONY: all clean fclean re debug dclean
