@@ -32,7 +32,7 @@ $(NAME): $(OBJS)
 
 %.o: %.c
 	git submodule update --init
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(LIB) 
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(LIB)
 
 clean:
 	$(MAKE) clean -C $(LIB)
@@ -49,7 +49,7 @@ ifneq ($(filter %.c, $(MAKECMDGOALS)),)
 endif
 
 debug: all
-	$(CC) $(CFLAGS) -g $(DBG_SRC) $(NAME) -o $(D_OUT) -I $(LIB) 
+	$(CC) $(CFLAGS) -g $(DBG_SRC) $(NAME) -o $(DBG_OUT)
 	$(MAKE) fclean
 
 dclean: fclean
