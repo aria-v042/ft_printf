@@ -6,7 +6,7 @@
 #    By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/23 22:59:04 by frodrig2          #+#    #+#              #
-#    Updated: 2026/05/25 04:55:05 by frodrig2         ###   ########.fr        #
+#    Updated: 2026/05/29 17:38:46 by frodrig2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRC_DIR = .
 SRCS = $(shell find $(SRC_DIR) -maxdepth 1 -name '*.c')
 OBJS = $(SRCS:.c=.o)
 
-DBG_SRC ?= $(or $(filter %.c, $(MAKECMDGOALS)), ft_printf.c)
+TEST_SRC = test.c
+DBG_SRC ?= $(or $(filter %.c, $(MAKECMDGOALS)), $(TEST_SRC))
 DBG_OUT = debug
 
 all: $(NAME)

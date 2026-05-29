@@ -1,0 +1,55 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/29 17:35:11 by frodrig2          #+#    #+#             */
+/*   Updated: 2026/05/29 17:44:56 by frodrig2         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+#include <stdio.h>
+
+void	test_printf_char(int test_num, char c)
+{
+	int	bytes_printed;
+
+	printf("-------\ntest %d:\n\n", test_num);
+	bytes_printed = ft_printf("%c\n", c);
+	printf(">> ft_printf() printed %d chars\n", bytes_printed);
+	bytes_printed = printf("%c\n", c);
+	printf(">> printf() printed %d chars\n\n", bytes_printed);
+}
+
+void	test_printf_string(int test_num, const char *s)
+{
+	int	bytes_printed;
+
+	printf("-------\ntest %d:\n\n", test_num);
+	bytes_printed = ft_printf("%s\n", s);
+	printf(">> ft_printf() printed %d chars\n", bytes_printed);
+	bytes_printed = printf("%s\n", s);
+	printf(">> printf() printed %d chars\n\n", bytes_printed);
+}
+
+void	test_printf_integer(int test_num, int d)
+{
+	int	bytes_printed;
+
+	printf("-------\ntest %d:\n\n", test_num);
+	bytes_printed = ft_printf("%d\n", d);
+	printf(">> ft_printf() printed %d chars\n", bytes_printed);
+	bytes_printed = printf("%d\n", d);
+	printf(">> printf() printed %d chars\n\n", bytes_printed);
+}
+
+int	main(void)
+{
+	test_printf_char(1, 'f');
+	test_printf_string(2, "testing");
+	test_printf_string(3, NULL);
+	return (0);
+}
