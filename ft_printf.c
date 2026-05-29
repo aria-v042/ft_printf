@@ -12,27 +12,37 @@
 
 #include "ft_printf.h"
 
-int	print_format(const char specifi, va_list *argptr)
+int	convert_format(const char *format, va_list *apptr)
 {
-	// TODO
-	if (format == 'c')
-		// TODO
-	else if ()
+	if (*format == 'c')
+		return convert_char(apptr);
+	if (*format == 's')
+		return convert_string(apptr);
+	if (*format == 'p')
+		return convert_pointer(apptr);
+	if (*format == 'd' || *format == 'i')
+		return convert_integer(apptr);
+	if (*format == 'u')
+		return convert_unsigned(apptr);
+	if (*format == 'x' || *format == 'X')
+		return convert_hexadecimal(apptr);
+	if (*format == '%')
+		return convert_percent(apptr);
 	return (0);
 }
 
 int	ft_printf(const char *format, ...)
 {
-	va_list	args;
+	va_list	ap;
 	int		bytes_printed;
 
 	bytes_printed = 0;
-	va_start(args, format);
+	va_start(ap, format);
 	while (*format)
 	{
 		if (*format == '%')
 		{
-			bytes_printed += print_format(*(++format), &args); // TODO
+			bytes_printed += convert_format(++format, &ap); // TODO
 		}
 		else
 		{
@@ -40,7 +50,7 @@ int	ft_printf(const char *format, ...)
 		}
 		format++;
 	}
-	va_end(args);
+	va_end(ap);
 	return (bytes_printed);
 }
 //
