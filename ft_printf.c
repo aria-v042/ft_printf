@@ -6,41 +6,18 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 03:33:06 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/29 17:46:08 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/29 21:38:06 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	convert_char(va_list *apptr)
-{
-	unsigned char	c;
-
-	c = va_arg(*apptr, int);
-	ft_putchar_fd(c, STDOUT_FILENO);
-	return (sizeof(unsigned char));
-}
-
-int	convert_string(va_list *apptr)
-{
-	char	*s;
-
-	s = va_arg(*apptr, char *);
-	if (!s)
-	{
-		ft_putstr_fd("(null)", STDOUT_FILENO);
-		return (6);
-	}
-	ft_putstr_fd(s, STDOUT_FILENO);
-	return (ft_strlen(s));
-}
-
-int	convert_format(const char *format, va_list *apptr)
+int	convert_format(const char *format, va_list *ap_ptr)
 {
 	if (*format == 'c')
-		return (convert_char(apptr));
+		return (print_char(ap_ptr));
 	if (*format == 's')
-		return (convert_string(apptr));
+		return (print_string(ap_ptr));
 //	if (*format == 'p')
 //		return (convert_pointer(apptr));
 //	if (*format == 'd' || *format == 'i')
