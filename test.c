@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 17:35:11 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/29 18:11:47 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/29 19:40:21 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,10 @@ void	test_printf_integer(int test_num, int d)
 int	main(void)
 {
 	test_printf_char(1, 'f');
-	test_printf_string(2, "testing");
-	test_printf_string(3, NULL);
-	test_printf_pointer(4, &test_printf_pointer);
+	test_printf_char(2, 0);
+	test_printf_string(3, "testing");
+	test_printf_string(4, NULL);
+	test_printf_pointer(5, &test_printf_pointer);
+	test_printf_pointer(5, NULL);
 	return (0);
 }
