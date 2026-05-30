@@ -51,8 +51,8 @@ void	test_printf_integer(int test_num, int d)
 	int	bytes_printed;
 
 	printf("-------\ntest %d:\n\n", test_num);
-	bytes_printed = ft_printf("%d\n", d);
-	printf(">> ft_printf() printed %d chars\n", bytes_printed);
+//	bytes_printed = ft_printf("%d\n", d);
+//	printf(">> ft_printf() printed %d chars\n", bytes_printed);
 	bytes_printed = printf("%d\n", d);
 	printf(">> printf() printed %d chars\n\n", bytes_printed);
 }
@@ -64,6 +64,8 @@ int	main(void)
 	test_printf_string(3, "testing");
 	test_printf_string(4, NULL);
 	test_printf_pointer(5, &test_printf_pointer);
-	test_printf_pointer(5, NULL);
+	test_printf_pointer(6, NULL);
+	test_printf_integer(7, 42);
+	test_printf_integer(8, 0);
 	return (0);
 }
