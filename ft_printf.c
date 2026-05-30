@@ -18,16 +18,16 @@ int	convert_format(const char *format, va_list *ap_ptr)
 		return (print_char(ap_ptr));
 	if (*format == 's')
 		return (print_string(ap_ptr));
-//	if (*format == 'p')
-//		return (convert_pointer(apptr));
+	if (*format == 'p')
+		return (print_pointer(ap_ptr));
 //	if (*format == 'd' || *format == 'i')
-//		return (convert_integer(apptr));
+//		return (print_integer(ap_ptr));
 //	if (*format == 'u')
-//		return (convert_unsigned(apptr));
+//		return (print_unsigned(ap_ptr));
 //	if (*format == 'x' || *format == 'X')
-//		return (convert_hexadecimal(apptr));
+//		return (print_hexadecimal(ap_ptr));
 //	if (*format == '%')
-//		return (convert_percent(apptr));
+//		return (print_percent(ap_ptr));
 	return (0);
 }
 
