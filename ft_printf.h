@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 03:38:26 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/31 15:59:54 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/31 16:03:35 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 int		ft_printf(const char *format, ...);
 
-/* ==== FORMAT CONVERSION ==== */
+/* ==== FORMAT PARSING ==== */
 
 int		parse_format(const char *format, va_list *ap_ptr);
 
