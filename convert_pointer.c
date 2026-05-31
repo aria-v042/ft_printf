@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_pointer.c                                    :+:      :+:    :+:   */
+/*   convert_pointer.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 21:30:18 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/31 04:16:00 by frodrig2         ###   ########.fr       */
+/*   Created: 2026/05/31 15:57:09 by frodrig2          #+#    #+#             */
+/*   Updated: 2026/05/31 15:59:29 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// TODO:
 #include "ft_printf.h"
 
-int	print_pointer(va_list *ap_ptr)
+int	convert_pointer(va_list *ap_ptr)
 {
 	uintptr_t	address;
 	int			len;
@@ -26,6 +25,6 @@ int	print_pointer(va_list *ap_ptr)
 	}
 	ft_putstr_fd("0x", STDOUT_FILENO);
 	len = 2;
-	util_putnbr_base(address, BASE16_LOWERCASE, &len);
+	ft_putnbr_base(address, BASE16_LOWERCASE, &len);
 	return (len);
 }

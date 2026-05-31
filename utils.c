@@ -6,13 +6,13 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/31 03:46:04 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/31 04:15:47 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/31 15:59:48 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	util_putnbr_base(unsigned long long n, char *base, int *len)
+void	ft_putnbr_base(unsigned long long n, char *base, int *len)
 {
 	unsigned long long	base_size;
 

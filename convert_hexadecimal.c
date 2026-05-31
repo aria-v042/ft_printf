@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_hexadecimal.c                                :+:      :+:    :+:   */
+/*   convert_hexadecimal.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/31 04:41:59 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/31 05:03:10 by frodrig2         ###   ########.fr       */
+/*   Created: 2026/05/31 15:58:30 by frodrig2          #+#    #+#             */
+/*   Updated: 2026/05/31 15:58:38 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_hexadecimal(va_list *ap_ptr, char specifier)
+int	convert_hexadecimal(va_list *ap_ptr, char specifier)
 {
 	unsigned int	num;
 	int				len;

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_string.c                                     :+:      :+:    :+:   */
+/*   convert_string.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 21:29:54 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/31 03:03:36 by frodrig2         ###   ########.fr       */
+/*   Created: 2026/05/31 15:56:43 by frodrig2          #+#    #+#             */
+/*   Updated: 2026/05/31 15:56:53 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_string(va_list *ap_ptr)
+int	convert_string(va_list *ap_ptr)
 {
 	char	*s;
 

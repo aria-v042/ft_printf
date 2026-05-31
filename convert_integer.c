@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_integer.c                                    :+:      :+:    :+:   */
+/*   convert_integer.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/31 02:14:31 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/31 03:45:53 by frodrig2         ###   ########.fr       */
+/*   Created: 2026/05/31 15:57:31 by frodrig2          #+#    #+#             */
+/*   Updated: 2026/05/31 15:57:47 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_integer(va_list *ap_ptr)
+int	convert_integer(va_list *ap_ptr)
 {
 	int	num;
 
