@@ -6,12 +6,14 @@
 #    By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/23 22:59:04 by frodrig2          #+#    #+#              #
-#    Updated: 2026/05/31 04:56:45 by frodrig2         ###   ########.fr        #
+#    Updated: 2026/05/31 16:20:24 by frodrig2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
+
 LIB = libft
+LIBNAME = $(LIB)/$(LIB).a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -25,10 +27,12 @@ TEST_OUT = test
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(MAKE) -C $(LIB)
-	cp $(LIB)/$(LIB).a $(NAME)
+$(NAME): $(LIBNAME) $(OBJS)
+	cp $(LIBNAME) $(NAME)
 	ar -rcs $(NAME) $(OBJS)
+
+$(LIBNAME):
+	$(MAKE) -C $(LIB)
 
 %.o: %.c
 	git submodule update --init
@@ -55,4 +59,4 @@ test: all
 tclean: fclean
 	rm -f $(TEST_OUT)
 
-.PHONY: all clean fclean re test tclean
+.PHONY: all $(LIBNAME) clean fclean re test tclean
