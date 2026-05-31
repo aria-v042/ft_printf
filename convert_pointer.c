@@ -26,6 +26,6 @@ int	print_pointer(va_list *ap_ptr)
 	}
 	ft_putstr_fd("0x", STDOUT_FILENO);
 	len = 2;
-	util_putnbr_base(address, "0123456789abcdef", &len);
+	util_putnbr_base(address, BASE16_LOWERCASE, &len);
 	return (len);
 }

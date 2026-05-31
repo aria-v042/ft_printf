@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_hexadecimal.c                                :+:      :+:    :+:   */
+/*   print_unsigned.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/31 04:41:59 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/31 05:03:10 by frodrig2         ###   ########.fr       */
+/*   Created: 2026/05/31 03:27:20 by frodrig2          #+#    #+#             */
+/*   Updated: 2026/05/31 04:15:53 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_hexadecimal(va_list *ap_ptr, char specifier)
+int	print_unsigned(va_list *ap_ptr)
 {
 	unsigned int	num;
 	int				len;
 
 	len = 0;
 	num = va_arg(*ap_ptr, unsigned int);
-	if (specifier == 'x')
-		util_putnbr_base(num, "0123456789abcdef", &len);
-	else if (specifier == 'X')
-		util_putnbr_base(num, "0123456789ABCDEF", &len);
+	util_putnbr_base(num, BASE10, &len);
 	return (len);
 }
