@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 21:29:54 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/29 21:37:19 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/31 03:03:36 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int	print_string(va_list *ap_ptr)
 		return (6);
 	}
 	ft_putstr_fd(s, STDOUT_FILENO);
-	return (ft_strlen(s));
+	return ((int)ft_strlen(s));
 }
