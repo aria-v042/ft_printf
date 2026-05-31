@@ -6,7 +6,7 @@
 #    By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/23 22:59:04 by frodrig2          #+#    #+#              #
-#    Updated: 2026/05/29 17:38:46 by frodrig2         ###   ########.fr        #
+#    Updated: 2026/05/31 04:56:45 by frodrig2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ test: all
 	$(CC) $(CFLAGS) -g $(TEST_SRC) $(NAME) -o $(TEST_OUT)
 	$(MAKE) fclean
 
-dclean: fclean
+tclean: fclean
 	rm -f $(TEST_OUT)
 
-.PHONY: all clean fclean re debug dclean
+.PHONY: all clean fclean re test tclean
