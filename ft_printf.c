@@ -24,8 +24,8 @@ int	convert_format(const char *format, va_list *ap_ptr)
 		return (print_integer(ap_ptr));
 	if (*format == 'u')
 		return (print_unsigned(ap_ptr));
-//	if (*format == 'x' || *format == 'X')
-//		return (print_hexadecimal(ap_ptr));
+	if (*format == 'x' || *format == 'X')
+		return (print_hexadecimal(ap_ptr, *format));
 //	if (*format == '%')
 //		return (print_percent(ap_ptr));
 	return (0);

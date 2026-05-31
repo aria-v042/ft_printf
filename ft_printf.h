@@ -29,6 +29,7 @@ int		print_string(va_list *ap_ptr);
 int		print_pointer(va_list *ap_ptr);
 int		print_integer(va_list *ap_ptr);
 int		print_unsigned(va_list *ap_ptr);
+int		print_hexadecimal(va_list *ap_ptr, char specifier);
 
 /* ==== UTILS ==== */
 
