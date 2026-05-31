@@ -46,14 +46,14 @@ void	test_printf_pointer(int test_num, void *p)
 	printf(">> printf() printed %d chars\n\n", bytes_printed);
 }
 
-void	test_printf_integer(int test_num, int integer)
+void	test_printf_integer(int test_num, int intgr)
 {
 	int	bytes_printed;
 
 	printf("-------\ntest %d:\n\n", test_num);
-	bytes_printed = ft_printf("%i\n", integer);
+	bytes_printed = ft_printf("%i\n", intgr);
 	ft_printf(">> ft_printf() printed %d chars\n", bytes_printed);
-	bytes_printed = printf("%i\n", integer);
+	bytes_printed = printf("%i\n", intgr);
 	printf(">> printf() printed %d chars\n\n", bytes_printed);
 }
 
@@ -67,5 +67,6 @@ int	main(void)
 	test_printf_pointer(6, NULL);
 	test_printf_integer(7, 42);
 	test_printf_integer(8, 0);
+	test_printf_integer(9, -2147483648);
 	return (0);
 }
