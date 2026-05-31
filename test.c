@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 17:35:11 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/31 04:00:23 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/31 05:04:18 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,21 @@ void	test_printf_unsigned(int test_num, int unsgn)
 	printf(">> printf() printed %d chars\n\n", bytes_printed);
 }
 
+void	test_printf_hexadecimal(int test_num, int hex)
+{
+	int	bytes_printed;
+
+	printf("-------\ntest %d:\n\n", test_num);
+	bytes_printed = ft_printf("%x\n", hex);
+	ft_printf(">> ft_printf() printed %d chars\n", bytes_printed);
+	bytes_printed = printf("%x\n", hex);
+	printf(">> printf() printed %d chars\n\n", bytes_printed);
+	bytes_printed = ft_printf("%X\n", hex);
+	ft_printf(">> ft_printf() printed %d chars\n", bytes_printed);
+	bytes_printed = printf("%X\n", hex);
+	printf(">> printf() printed %d chars\n\n", bytes_printed);
+}
+
 int	main(void)
 {
 	test_printf_char(1, 'f');
@@ -81,5 +96,7 @@ int	main(void)
 	test_printf_integer(9, -2147483648);
 	test_printf_unsigned(10, 0);
 	test_printf_unsigned(11, 4294967295);
+	test_printf_hexadecimal(12, 42);
+	test_printf_hexadecimal(12, 4294967295);
 	return (0);
 }
