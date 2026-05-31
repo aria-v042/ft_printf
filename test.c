@@ -118,5 +118,7 @@ int	main(void)
 	// test %x and %X specifier parsing
 	test_printf_hexadecimal(14, 42);
 	test_printf_hexadecimal(15, 4294967295);
+	// test %% to print a literal percent sign
+	test_printf_nospec(15, "this string prints a %% sign\n");
 	return (0);
 }
