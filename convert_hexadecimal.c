@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/31 15:58:30 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/31 15:58:38 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/31 16:01:24 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	convert_hexadecimal(va_list *ap_ptr, char specifier)
 	len = 0;
 	num = va_arg(*ap_ptr, unsigned int);
 	if (specifier == 'x')
-		util_putnbr_base(num, BASE16_LOWERCASE, &len);
+		ft_putnbr_base(num, BASE16_LOWERCASE, &len);
 	else if (specifier == 'X')
-		util_putnbr_base(num, BASE16_UPPERCASE, &len);
+		ft_putnbr_base(num, BASE16_UPPERCASE, &len);
 	return (len);
 }

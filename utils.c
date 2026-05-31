@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/31 03:46:04 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/31 15:59:48 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/31 16:01:15 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putnbr_base(unsigned long long n, char *base, int *len)
 
 	base_size = ft_strlen(base);
 	if (n >= base_size)
-		util_putnbr_base(n / base_size, base, len);
+		ft_putnbr_base(n / base_size, base, len);
 	ft_putchar_fd(base[n % base_size], STDOUT_FILENO);
 	(*len)++;
 }
