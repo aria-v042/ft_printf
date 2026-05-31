@@ -6,12 +6,23 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 17:35:11 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/31 05:04:18 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/31 05:25:02 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
+
+void	test_printf_nospec(int test_num, const char *str)
+{
+	int	bytes_printed;
+
+	printf("-------\ntest %d:\n\n", test_num);
+	bytes_printed = ft_printf(str);
+	printf(">> ft_printf() printed %d chars\n", bytes_printed);
+	bytes_printed = printf(str);
+	printf(">> printf() printed %d chars\n\n", bytes_printed);
+}
 
 void	test_printf_char(int test_num, char c)
 {
@@ -85,18 +96,27 @@ void	test_printf_hexadecimal(int test_num, int hex)
 
 int	main(void)
 {
-	test_printf_char(1, 'f');
-	test_printf_char(2, 0);
-	test_printf_string(3, "testing");
-	test_printf_string(4, NULL);
-	test_printf_pointer(5, &test_printf_pointer);
-	test_printf_pointer(6, NULL);
-	test_printf_integer(7, 42);
-	test_printf_integer(8, 0);
-	test_printf_integer(9, -2147483648);
-	test_printf_unsigned(10, 0);
-	test_printf_unsigned(11, 4294967295);
-	test_printf_hexadecimal(12, 42);
-	test_printf_hexadecimal(12, 4294967295);
+	// test printing string with no specifiers
+	test_printf_nospec(1, "hi friend\n");
+	test_printf_nospec(2, "\n");
+	// test %c specifier parsing
+	test_printf_char(3, 'f');
+	test_printf_char(4, 0);
+	// test %s specifier parsing
+	test_printf_string(5, "testing");
+	test_printf_string(6, NULL);
+	// test %p specifier parsing
+	test_printf_pointer(7, &test_printf_pointer);
+	test_printf_pointer(8, NULL);
+	// test %d and %i specifier parsing
+	test_printf_integer(9, 42);
+	test_printf_integer(10, 0);
+	test_printf_integer(11, -2147483648);
+	// test %u specifier parsing
+	test_printf_unsigned(12, 0);
+	test_printf_unsigned(13, 4294967295);
+	// test %x and %X specifier parsing
+	test_printf_hexadecimal(14, 42);
+	test_printf_hexadecimal(15, 4294967295);
 	return (0);
 }
