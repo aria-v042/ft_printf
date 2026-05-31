@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 03:33:06 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/31 03:51:35 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/31 05:28:36 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@ int	convert_format(const char *format, va_list *ap_ptr)
 		return (print_unsigned(ap_ptr));
 	if (*format == 'x' || *format == 'X')
 		return (print_hexadecimal(ap_ptr, *format));
-//	if (*format == '%')
-//		return (print_percent(ap_ptr));
+	if (*format == '%')
+	{
+		ft_putchar_fd('%', STDOUT_FILENO);
+		return (1);
+	}
 	return (0);
 }
 
