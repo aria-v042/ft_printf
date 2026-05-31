@@ -6,7 +6,7 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 03:33:06 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/29 21:38:06 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/31 03:08:43 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	convert_format(const char *format, va_list *ap_ptr)
 		return (print_string(ap_ptr));
 	if (*format == 'p')
 		return (print_pointer(ap_ptr));
-//	if (*format == 'd' || *format == 'i')
-//		return (print_integer(ap_ptr));
+	if (*format == 'd' || *format == 'i')
+		return (print_integer(ap_ptr));
 //	if (*format == 'u')
 //		return (print_unsigned(ap_ptr));
 //	if (*format == 'x' || *format == 'X')
