@@ -6,23 +6,12 @@
 /*   By: frodrig2 <frodrig2@students.42porto.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 21:30:18 by frodrig2          #+#    #+#             */
-/*   Updated: 2026/05/29 21:36:50 by frodrig2         ###   ########.fr       */
+/*   Updated: 2026/05/31 04:16:00 by frodrig2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // TODO:
 #include "ft_printf.h"
-
-void	util_putnbr_base(unsigned long long n, char *base, int *len)
-{
-	unsigned long long	base_size;
-
-	base_size = ft_strlen(base);
-	if (n >= base_size)
-		util_putnbr_base(n / base_size, base, len);
-	ft_putchar_fd(base[n % base_size], STDOUT_FILENO);
-	(*len)++;
-}
 
 int	print_pointer(va_list *ap_ptr)
 {
