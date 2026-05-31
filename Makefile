@@ -20,9 +20,8 @@ SRC_DIR = .
 SRCS = $(shell find $(SRC_DIR) -maxdepth 1 -name '*.c')
 OBJS = $(SRCS:.c=.o)
 
-TEST_SRC = test.c
-DBG_SRC ?= $(or $(filter %.c, $(MAKECMDGOALS)), $(TEST_SRC))
-DBG_OUT = debug
+TEST_SRC ?= $(or $(filter %.c, $(MAKECMDGOALS)), test.c)
+TEST_OUT = test
 
 all: $(NAME)
 
@@ -49,11 +48,11 @@ ifneq ($(filter %.c, $(MAKECMDGOALS)),)
 	%.c: ;
 endif
 
-debug: all
-	$(CC) $(CFLAGS) -g $(DBG_SRC) $(NAME) -o $(DBG_OUT)
+test: all
+	$(CC) $(CFLAGS) -g $(TEST_SRC) $(NAME) -o $(TEST_OUT)
 	$(MAKE) fclean
 
 dclean: fclean
-	rm -f $(DBG_OUT)
+	rm -f $(TEST_OUT)
 
 .PHONY: all clean fclean re debug dclean
