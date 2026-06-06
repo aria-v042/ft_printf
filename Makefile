@@ -19,7 +19,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC_DIR = .
-SRCS = $(shell find $(SRC_DIR) -maxdepth 1 -name '*.c')
+SRCS = $(shell find $(SRC_DIR) -maxdepth 1 -name '*.c' ! -name $(TEST_SRC))
 OBJS = $(SRCS:.c=.o)
 
 TEST_SRC ?= $(or $(filter %.c, $(MAKECMDGOALS)), test.c)
