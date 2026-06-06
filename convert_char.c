@@ -18,5 +18,5 @@ int	convert_char(va_list *ap_ptr)
 
 	c = va_arg(*ap_ptr, int);
 	ft_putchar_fd(c, STDOUT_FILENO);
-	return ((int)sizeof(unsigned char));
+	return ((int) sizeof(unsigned char));
 }
