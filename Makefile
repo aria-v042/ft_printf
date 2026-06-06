@@ -32,10 +32,10 @@ $(NAME): $(LIBNAME) $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
 
 $(LIBNAME):
+	git submodule update --init
 	$(MAKE) -C $(LIB)
 
 %.o: %.c
-	git submodule update --init
 	$(CC) $(CFLAGS) -c $< -o $@ -I $(LIB)
 
 clean:
