@@ -143,12 +143,14 @@ int	main(void)
 	test_printf_integer(9, 42);
 	test_printf_integer(10, 0);
 	test_printf_integer(11, -2147483648);
+	test_printf_integer(12, INT_MIN);
+	test_printf_integer(13, INT_MAX);
 	// test %u specifier parsing
-	test_printf_unsigned(12, 0);
-	test_printf_unsigned(13, 4294967295);
+	test_printf_unsigned(14, 0);
+	test_printf_unsigned(15, UINT_MAX);
 	// test %x and %X specifier parsing
-	test_printf_hexadecimal(14, 42);
-	test_printf_hexadecimal(15, 4294967295);
+	test_printf_hexadecimal(16, 42);
+	test_printf_hexadecimal(17, UINT_MAX);
 	// test %% to print a literal percent sign
 	test_printf_percent(18);
 	return (0);
