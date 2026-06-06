@@ -12,15 +12,27 @@
 
 #include "ft_printf.h"
 #include <stdio.h>
+#include <limits.h>
 
-void	test_printf_nospec(int test_num, const char *str)
+void	test_printf_hello(int test_num)
 {
 	int	bytes_printed;
 
-	printf("-------\ntest %d: string with no specifiers\n\n", test_num);
-	bytes_printed = ft_printf(str);
+	printf("-------\ntest %d: no specifiers\n\n", test_num);
+	bytes_printed = ft_printf("hello world\n");
 	printf(">> ft_printf() printed %d chars\n", bytes_printed);
-	bytes_printed = printf(str);
+	bytes_printed = printf("hello world\n");
+	printf(">> printf() printed %d chars\n\n", bytes_printed);
+}
+
+void	test_printf_empty(int test_num)
+{
+	int	bytes_printed;
+
+	printf("-------\ntest %d: empty format string\n\n", test_num);
+	bytes_printed = ft_printf("");
+	printf(">> ft_printf() printed %d chars\n", bytes_printed);
+	bytes_printed = printf("");
 	printf(">> printf() printed %d chars\n\n", bytes_printed);
 }
 
@@ -102,11 +114,22 @@ void	test_printf_hexadecimal(int test_num, int hex)
 	printf(">> printf() printed %d chars\n\n", bytes_printed);
 }
 
+void	test_printf_percent(int test_num)
+{
+	int	bytes_printed;
+
+	printf("-------\ntest %d: %%%%\n\n", test_num);
+	bytes_printed = ft_printf("print literal %% sign\n");
+	printf(">> ft_printf() printed %d chars\n", bytes_printed);
+	bytes_printed = printf("print literal %% sign\n");
+	printf(">> printf() printed %d chars\n\n", bytes_printed);
+}
+
 int	main(void)
 {
 	// test printing string with no specifiers
-	test_printf_nospec(1, "hi friend\n");
-	test_printf_nospec(2, "\n");
+	test_printf_hello(1);
+	test_printf_empty(2);
 	// test %c specifier parsing
 	test_printf_char(3, 'f');
 	test_printf_char(4, 0);
@@ -127,6 +150,6 @@ int	main(void)
 	test_printf_hexadecimal(14, 42);
 	test_printf_hexadecimal(15, 4294967295);
 	// test %% to print a literal percent sign
-	test_printf_nospec(15, "this string prints a %% sign\n");
+	test_printf_percent(18);
 	return (0);
 }
