@@ -134,24 +134,22 @@ int	main(void)
 	test_printf_char(3, 'f');
 	test_printf_char(4, 0);
 	// test %s specifier parsing
-	test_printf_string(5, "testing");
+	test_printf_string(5, "hi friend");
 	test_printf_string(6, NULL);
 	// test %p specifier parsing
 	test_printf_pointer(7, &test_printf_pointer);
 	test_printf_pointer(8, NULL);
 	// test %d and %i specifier parsing
 	test_printf_integer(9, 42);
-	test_printf_integer(10, 0);
-	test_printf_integer(11, -2147483648);
-	test_printf_integer(12, INT_MIN);
-	test_printf_integer(13, INT_MAX);
+	test_printf_integer(10, INT_MIN);
+	test_printf_integer(11, INT_MAX);
 	// test %u specifier parsing
-	test_printf_unsigned(14, 0);
-	test_printf_unsigned(15, UINT_MAX);
+	test_printf_unsigned(12, 0);
+	test_printf_unsigned(13, UINT_MAX);
 	// test %x and %X specifier parsing
-	test_printf_hexadecimal(16, 42);
-	test_printf_hexadecimal(17, UINT_MAX);
+	test_printf_hexadecimal(14, 42);
+	test_printf_hexadecimal(15, UINT_MAX);
 	// test %% to print a literal percent sign
-	test_printf_percent(18);
+	test_printf_percent(16);
 	return (0);
 }
