@@ -60,4 +60,4 @@ test: all
 tclean: fclean
 	rm -f $(TEST_OUT)
 
-.PHONY: all $(LIBNAME) clean fclean re test tclean
+.PHONY: all clean fclean re test tclean
