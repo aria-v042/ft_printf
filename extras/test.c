@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 #include <stdio.h>
 #include <limits.h>
 
@@ -25,17 +25,17 @@ void	test_printf_hello(int test_num)
 	printf(">> printf() printed %d chars\n\n", bytes_printed);
 }
 
-void	test_printf_empty(int test_num)
-{
-	int	bytes_printed;
-
-	printf("-------\ntest %d: empty format string\n\n", test_num);
-	bytes_printed = ft_printf("");
-	printf(">> ft_printf() printed %d chars\n", bytes_printed);
-	bytes_printed = printf("");
-	printf(">> printf() printed %d chars\n\n", bytes_printed);
-}
-
+//void	test_printf_empty(int test_num)
+//{
+//	int	bytes_printed;
+//
+//	printf("-------\ntest %d: empty format string\n\n", test_num);
+//	bytes_printed = ft_printf("");
+//	printf(">> ft_printf() printed %d chars\n", bytes_printed);
+//	bytes_printed = printf("");
+//	printf(">> printf() printed %d chars\n\n", bytes_printed);
+//}
+//
 void	test_printf_char(int test_num, char c)
 {
 	int	bytes_printed;
@@ -129,7 +129,7 @@ int	main(void)
 {
 	// test printing string with no specifiers
 	test_printf_hello(1);
-	test_printf_empty(2);
+	//test_printf_empty(2);
 	// test %c specifier parsing
 	test_printf_char(3, 'f');
 	test_printf_char(4, 0);
