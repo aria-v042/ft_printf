@@ -36,7 +36,6 @@ $(NAME): $(LIBNAME) $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
 
 $(LIBNAME):
-	git submodule update --init
 	$(MAKE) -C $(LIB)
 
 %.o: %.c
