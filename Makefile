@@ -18,12 +18,16 @@ LIBNAME = $(LIB)/$(LIB).a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC_DIR = .
-SRCS = $(shell find $(SRC_DIR) -maxdepth 1 -name '*.c' ! -name $(TEST_SRC))
-OBJS = $(SRCS:.c=.o)
+SRCS = ft_printf.c \
+	   convert_char.c \
+	   convert_string.c \
+	   convert_pointer.c \
+	   convert_integer.c \
+	   convert_unsigned.c \
+	   convert_hexadecimal.c \
+	   utils.c
 
-TEST_SRC ?= $(or $(filter %.c, $(MAKECMDGOALS)), test.c)
-TEST_OUT = test
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
@@ -48,15 +52,4 @@ fclean: clean
 
 re: fclean all
 
-ifneq ($(filter %.c, $(MAKECMDGOALS)),)
-	%.c: ;
-endif
-
-test: all
-	$(CC) $(CFLAGS) -g $(TEST_SRC) $(NAME) -o $(TEST_OUT)
-	$(MAKE) fclean
-
-tclean: fclean
-	rm -f $(TEST_OUT)
-
-.PHONY: all $(LIBNAME) clean fclean re test tclean
+.PHONY: all $(LIBNAME) clean fclean re
