@@ -37,7 +37,7 @@ $(LIBNAME):
 	$(MAKE) -C $(ROOT)/$(LIB)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(LIB)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(MAKE) clean -C $(ROOT)/$(LIB)
@@ -49,6 +49,8 @@ fclean: clean
 
 re: fclean all
 
+# ==== EXTRA ==== #
+
 ifneq ($(filter %.c, $(MAKECMDGOALS)),)
 	%.c: ;
 endif
@@ -59,5 +61,7 @@ test: all
 
 tclean: fclean
 	rm -f $(TEST_OUT)
+
+# =============== #
 
 .PHONY: all clean fclean re test tclean

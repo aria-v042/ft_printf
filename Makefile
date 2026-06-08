@@ -39,7 +39,7 @@ $(LIBNAME):
 	$(MAKE) -C $(LIB)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(LIB)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(MAKE) clean -C $(LIB)
