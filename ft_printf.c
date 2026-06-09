@@ -41,6 +41,8 @@ int	ft_printf(const char *format, ...)
 
 	bytes_printed = 0;
 	va_start(ap, format);
+	if (!format)
+		return (-1);
 	while (*format)
 	{
 		if (*format == '%')
