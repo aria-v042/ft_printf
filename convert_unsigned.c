@@ -15,10 +15,7 @@
 int	convert_unsigned(va_list *ap_ptr)
 {
 	unsigned int	num;
-	int				len;
 
-	len = 0;
 	num = va_arg(*ap_ptr, unsigned int);
-	ft_putnbr_base(num, BASE10, &len);
-	return (len);
+	return (ft_putnbr_base(num, BASE10));
 }

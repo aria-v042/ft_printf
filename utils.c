@@ -12,15 +12,17 @@
 
 #include "ft_printf.h"
 
-void	ft_putnbr_base(unsigned long long n, char *base, int *len)
+int	ft_putnbr_base(unsigned long long n, char *base)
 {
 	unsigned long long	base_size;
+	int					bytes_printed;
 
+	bytes_printed = 0;
 	base_size = ft_strlen(base);
 	if (n >= base_size)
-		ft_putnbr_base(n / base_size, base, len);
+		bytes_printed += ft_putnbr_base(n / base_size, base);
 	ft_putchar_fd(base[n % base_size], STDOUT_FILENO);
-	(*len)++;
+	return (++bytes_printed);
 }
 
 size_t	ft_numlen(int n)

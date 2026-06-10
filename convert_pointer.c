@@ -15,7 +15,6 @@
 int	convert_pointer(va_list *ap_ptr)
 {
 	uintptr_t	address;
-	int			len;
 
 	address = (uintptr_t)va_arg(*ap_ptr, void *);
 	if (!address)
@@ -24,7 +23,5 @@ int	convert_pointer(va_list *ap_ptr)
 		return (5);
 	}
 	ft_putstr_fd("0x", STDOUT_FILENO);
-	len = 2;
-	ft_putnbr_base(address, BASE16_LOWERCASE, &len);
-	return (len);
+	return (2 + ft_putnbr_base(address, BASE16_LOWERCASE));
 }

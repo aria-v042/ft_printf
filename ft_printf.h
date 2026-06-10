@@ -37,7 +37,7 @@ int		convert_hexadecimal(va_list *ap_ptr, char specifier);
 
 /* ==== UTILS ==== */
 
-void	ft_putnbr_base(unsigned long long n, char *base, int *len);
+int		ft_putnbr_base(unsigned long long n, char *base);
 size_t	ft_numlen(int n);
 
 #endif
