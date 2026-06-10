@@ -2,15 +2,17 @@
 
 # ft_printf
 
+*Version: 12.1*
+
 ## Description
 
-ft_printf is a project in the 42 curriculum. The goal is to reimplement the standard C library's `printf()` function from scratch, handling a defined subset of conversion specifiers using variadic functions.
+**ft_printf** is a project in the [42](https://www.42network.org/) Common Core curriculum. It consists of reimplementing the C standard library's `printf()`, handling a defined subset of conversion specifiers using variadic functions.
 
-The function is implemented as a static archive, `libftprintf.a`, which includes the `libft` archive.
+The project should be built as a static archive, `libftprintf.a`, which may include the contents of the `libft.a` archive.
 
-The core challenge isn't the individual conversions themselves: most of them are straightforward once you have solid output primitives in place. The real exercise is in the architecture. A naive approach — one big switch with ad hoc formatting logic per specifier — technically works but becomes difficult to extend and harder to reason about. The project pushes you toward building something clean: a format string parser that identifies specifiers, and a dispatcher that routes each one to a dedicated handler.
+The key lesson in **ft_printf** is not so much in the specifier conversions themselves, but rather in the implementation of a solid architecture. Being able to write well-structured and extensible code is a highly valuable skill that is critical for the development of more complex projects.
 
-The project's code was written in accordance with [The Norm v4.1](https://github.com/42school/norminette/blob/master/pdf/en.norm.pdf).
+This project's code follows [The Norm v4.1](https://github.com/42school/norminette/blob/master/pdf/en.norm.pdf).
 
 ---
 
@@ -33,7 +35,7 @@ This produces `libftprintf.a` at the root of the repository.
 To use the library in your own project, include the header and link against the archive:
 
 ```sh
-cc your_file.c -Llibrary_dir -l libftprintf -Iheader_dir -o your_program
+cc your_file.c -Llibftprintf_dir -l libftprintf -Iheader_dir -o your_program
 ```
 
 ### Makefile rules
