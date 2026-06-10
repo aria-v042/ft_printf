@@ -56,7 +56,7 @@ ifneq ($(filter %.c, $(MAKECMDGOALS)),)
 endif
 
 test: all
-	$(CC) $(CFLAGS) -g $(TEST_SRC) $(NAME) -o $(TEST_OUT)
+	$(CC) -Wall -Wextra -g $(TEST_SRC) $(NAME) -o $(TEST_OUT)
 	$(MAKE) fclean
 
 tclean: fclean
