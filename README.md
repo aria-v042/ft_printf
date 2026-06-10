@@ -58,7 +58,7 @@ These rules were not included in the official project submission, but are availa
 
 ## Conversion specifiers
 
-`ft_printf` handles the following conversion specifiers:
+`ft_printf()` handles the following conversion specifiers:
 
 | Specifier | Output |
 |---|---|
@@ -79,29 +79,19 @@ The function returns the total number of characters written, matching the behavi
 
 ### Format string parsing
 
-The function's core loop iterates through the format string character by character, copying ordinary characters (not %) as-is to the output stream using the `write` function. When a % character is found, it advances to the next position, and passes the 
+The function's core loop iterates through the format string character by character, copying ordinary characters (not %) as-is to the output stream using the `write()` function. When a % character is found, the format string pointer advances to the next position and is passed to the `parse_specifier()` function.
 
-    When it encounters a `%`, it advances one position and passes the next character to a specifier dispatcher (`parse_specifier`). All other characters are written directly to stdout as-is, and the character count is incremented accordingly.
+### Conversion specification parsing
 
-This two-phase structure — scan, then dispatch — keeps the main loop simple and makes it easy to add specifiers without modifying the parsing logic.
+`parse_specifier()` takes the conversion specification and the address of the `va_list` of args, and routes the latter to the appropriate handler. It is implemented as a series of conditionals mapping each valid specifier to the dedicated conversion function. Unknown or unsupported specifiers are silently ignored.
 
-### Dispatcher
+### Conversion handling
 
-`parse_specifier` takes the specifier character and the `va_list`, and routes to the appropriate handler. It is implemented as a series of conditionals (or a comparable structure) mapping each valid specifier to a dedicated output function. Unknown or unsupported specifiers are handled gracefully rather than silently ignored.
+Each specifier type is handled by a corresponding function responsible for correctly converting the next argument in the `va_list` and writing it to the standard output stream.
 
-### Output layer
+The numeric specifiers that require a base conversion share a common utility function `ft_putnbr_base`, that also updates the variable containing the length of the converted number through its address.
 
-Each specifier has a corresponding function responsible for extracting its argument from the `va_list` and printing it. The numeric specifiers (`%d`, `%i`, `%u`, `%x`, `%X`, `%p`) share a common base-conversion utility (`util_putnbr_base`) that handles arbitrary bases and character sets, avoiding duplicated logic across handlers.
-
-Pointer printing (`%p`) is treated as a special case of hex output: the address is cast to `uintptr_t` (an unsigned integer wide enough to hold a pointer on the target platform) and printed with the `0x` prefix prepended. Using `uintptr_t` rather than `unsigned long` or `unsigned int` is the correct approach, as pointer width varies across architectures.
-
-Unsigned types (`%u`, `%x`, `%X`) use `unsigned int` when extracting from `va_list`, while `%p` uses `unsigned long long` (via `uintptr_t`) to accommodate 64-bit addresses. Signed types (`%d`, `%i`) use `int`. Mixing these up is a common source of bugs, particularly when testing with `UINT_MAX` or printing null pointers.
-
-### Justification
-
-The dispatcher-plus-handler architecture was chosen because it directly reflects the structure of the problem: each specifier is independent, and the logic for handling one shouldn't be entangled with the logic for another. It also makes the code straightforward to audit — checking that `%u` is correctly handled means reading one function, not tracing through a nested block.
-
-The decision to build a shared `util_putnbr_base` function rather than writing separate conversion routines for decimal, hex-lower, and hex-upper means that the base-conversion logic is tested once and reused consistently. The only variation between `%x` and `%X` is the digit character set passed to the utility.
+Pointer printing (`%p`) is treated as a special case of hex output: the address is cast to `uintptr_t` and printed with the `0x` prefix prepended. The data type used is `uintptr_t` rather than `unsigned long` or `unsigned int` for compatibility with pointer width variation across architectures.
 
 ---
 
@@ -109,13 +99,13 @@ The decision to build a shared `util_putnbr_base` function rather than writing s
 
 ### Reference material
 
-- `man 3 printf` — primary reference for conversion specifier behavior: [https://www.man7.org/linux/man-pages/man3/printf.3.html](https://www.man7.org/linux/man-pages/man3/printf.3.html)
+- `man 3 printf` — primary reference for conversion specifier behavior ([https://www.man7.org/linux/man-pages/man3/printf.3.html](https://www.man7.org/linux/man-pages/man3/printf.3.html))
 
 ### Learning resources
 
-- Codevaultyt — [*Variadic functions in C (part 1)*](https://youtu.be/oDC208zvsdg) and [*Variadic functions in C (part 2)*](https://youtu.be/Hb2m7htiKWM) — understanding variadic functions and `va_list` mechanics.
+- CodeVault — [*Variadic functions in C (part 1)*](https://youtu.be/oDC208zvsdg) and [*Variadic functions in C (part 2)*](https://youtu.be/Hb2m7htiKWM) — understanding variadic functions and `va_list` mechanics.
 - Jacob Sorber — [*Makefiles: the best way to manage your project builds*](https://youtu.be/DtGrdB8wQ_8) — correctly integrating `libft` as a subproject dependency in the Makefile.
 
 ### Use of AI
 
-AI was not used during the implementation of this project. The man page, the referenced videos, and existing knowledge from Libft were sufficient throughout. As with Libft, I preferred to keep my thought process free of external influence while still in the foundational phase of the curriculum.
+AI was not used during the implementation of this project.
