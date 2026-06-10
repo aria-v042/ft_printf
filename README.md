@@ -83,13 +83,13 @@ The function's core loop iterates through the format string character by charact
 
 ### Conversion specification parsing
 
-`parse_specifier()` takes the conversion specification and the address of the `va_list` of args, and routes the latter to the appropriate handler. It is implemented as a series of conditionals mapping each valid specifier to the dedicated conversion function. Unknown or unsupported specifiers are silently ignored.
+`parse_specifier()` takes the conversion specification and the address of the `va_list` of arguments, and routes the latter to the appropriate handler. It is implemented as a series of conditionals mapping each valid specifier to the dedicated conversion function. Unknown or unsupported specifiers are silently ignored.
 
 ### Conversion handling
 
 Each specifier type is handled by a corresponding function responsible for correctly converting the next argument in the `va_list` and writing it to the standard output stream.
 
-The numeric specifiers that require a base conversion share a common utility function `ft_putnbr_base`, that also updates the variable containing the length of the converted number through its address.
+The numeric specifiers that require a base conversion share a common utility function `ft_putnbr_base()`, that also updates the variable containing the length of the converted number through its address.
 
 Pointer printing (`%p`) is treated as a special case of hex output: the address is cast to `uintptr_t` and printed with the `0x` prefix prepended. The data type used is `uintptr_t` rather than `unsigned long` or `unsigned int` for compatibility with pointer width variation across architectures.
 
