@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	parse_format(const char *format, va_list *ap_ptr)
+int	parse_specification(const char *format, va_list *ap_ptr)
 {
 	if (*format == 'c')
 		return (convert_char(ap_ptr));
@@ -47,7 +47,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			bytes_printed += parse_format(++format, &ap);
+			bytes_printed += parse_specification(++format, &ap);
 		}
 		else
 		{

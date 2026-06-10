@@ -26,7 +26,7 @@ int		ft_printf(const char *format, ...);
 
 /* ==== FORMAT PARSING ==== */
 
-int		parse_format(const char *format, va_list *ap_ptr);
+int		parse_specification(const char *format, va_list *ap_ptr);
 
 int		convert_char(va_list *ap_ptr);
 int		convert_string(va_list *ap_ptr);
