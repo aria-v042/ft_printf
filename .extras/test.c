@@ -80,37 +80,37 @@ void	test_printf_pointer(int test_num, void *p)
 	printf(">> printf() printed %d chars\n\n", bytes_printed);
 }
 
-void	test_printf_integer(int test_num, int intgr)
+void	test_printf_integer(int test_num, int int_num)
 {
 	int	bytes_printed;
 
 	printf("-------\ntest %d.a: %%d\n\n", test_num);
 
-	bytes_printed = ft_printf("%d\n", intgr);
+	bytes_printed = ft_printf("%d\n", int_num);
 	printf(">> ft_printf() printed %d chars\n\n", bytes_printed);
-	bytes_printed = printf("%d\n", intgr);
+	bytes_printed = printf("%d\n", int_num);
 	printf(">> printf() printed %d chars\n\n", bytes_printed);
 
 	printf("test %d.b: %%i\n\n", test_num);
 
-	bytes_printed = ft_printf("%d\n", intgr);
+	bytes_printed = ft_printf("%d\n", int_num);
 	printf(">> ft_printf() printed %i chars\n\n", bytes_printed);
-	bytes_printed = printf("%d\n", intgr);
+	bytes_printed = printf("%d\n", int_num);
 	printf(">> printf() printed %i chars\n\n", bytes_printed);
 }
 
-void	test_printf_unsigned(int test_num, int unsgn)
+void	test_printf_unsigned(int test_num, unsigned int u_int)
 {
 	int	bytes_printed;
 
 	printf("-------\ntest %d: %%u\n\n", test_num);
-	bytes_printed = ft_printf("%u\n", unsgn);
+	bytes_printed = ft_printf("%u\n", u_int);
 	printf(">> ft_printf() printed %d chars\n\n", bytes_printed);
-	bytes_printed = printf("%u\n", unsgn);
+	bytes_printed = printf("%u\n", u_int);
 	printf(">> printf() printed %d chars\n\n", bytes_printed);
 }
 
-void	test_printf_hexadecimal(int test_num, int hex)
+void	test_printf_hexadecimal(int test_num, unsigned int hex)
 {
 	int	bytes_printed;
 
