@@ -15,11 +15,12 @@ ROOT = ..
 NAME = $(ROOT)/libftprintf.a
 
 LIB = libft
-LIBNAME = $(ROOT)/$(LIB)/$(LIB).a
+LIBDIR = $(ROOT)/$(LIB)
+LIBNAME = $(LIBDIR)/$(LIB).a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-CINCLUDES = -I$(ROOT) -I$(ROOT)/$(LIB)
+CINCLUDES = -I$(ROOT) -I$(LIBDIR)
 
 SRC_DIR = $(ROOT)
 SRCS = $(shell find $(SRC_DIR) -maxdepth 1 -name '*.c')
@@ -35,17 +36,17 @@ $(NAME): $(LIBNAME) $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
 
 $(LIBNAME):
-	$(MAKE) -C $(ROOT)/$(LIB)
+	$(MAKE) -C $(LIBDIR)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(CINCLUDES) -c $< -o $@
 
 clean:
-	$(MAKE) clean -C $(ROOT)/$(LIB)
+	$(MAKE) clean -C $(LIBDIR)
 	rm -f $(OBJS)
 
 fclean: clean
-	$(MAKE) fclean -C $(ROOT)/$(LIB)
+	$(MAKE) fclean -C $(LIBDIR)
 	rm -f $(NAME)
 
 re: fclean all
