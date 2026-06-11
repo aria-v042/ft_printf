@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include "libft/libft.h"
+# include "libft.h"
 
 # define BASE10 "0123456789"
 # define BASE16_LOWERCASE "0123456789abcdef"

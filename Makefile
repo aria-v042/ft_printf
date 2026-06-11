@@ -10,10 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
+ROOT = .
 NAME = libftprintf.a
 
 LIB = libft
-LIBNAME = $(LIB)/$(LIB).a
+LIBDIR = $(ROOT)/$(LIB)
+LIBNAME = $(LIBDIR)/$(LIB).a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -36,17 +38,17 @@ $(NAME): $(LIBNAME) $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
 
 $(LIBNAME):
-	$(MAKE) -C $(LIB)
+	$(MAKE) -C $(LIBDIR)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(LIBDIR) -c $< -o $@
 
 clean:
-	$(MAKE) clean -C $(LIB)
+	$(MAKE) clean -C $(LIBDIR)
 	rm -f $(OBJS)
 
 fclean: clean
-	$(MAKE) fclean -C $(LIB)
+	$(MAKE) fclean -C $(LIBDIR)
 	rm -f $(NAME)
 
 re: fclean all

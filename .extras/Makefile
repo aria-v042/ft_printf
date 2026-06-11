@@ -19,6 +19,7 @@ LIBNAME = $(ROOT)/$(LIB)/$(LIB).a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+CINCLUDES = -I$(ROOT) -I$(ROOT)/$(LIB)
 
 SRC_DIR = $(ROOT)
 SRCS = $(shell find $(SRC_DIR) -maxdepth 1 -name '*.c')
@@ -37,7 +38,7 @@ $(LIBNAME):
 	$(MAKE) -C $(ROOT)/$(LIB)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(CINCLUDES) -c $< -o $@
 
 clean:
 	$(MAKE) clean -C $(ROOT)/$(LIB)
@@ -56,7 +57,7 @@ ifneq ($(filter %.c, $(MAKECMDGOALS)),)
 endif
 
 test: all
-	$(CC) -Wall -Wextra -g $(TEST_SRC) $(NAME) -o $(TEST_OUT)
+	$(CC) -Wall -Wextra -g $(TEST_SRC) $(NAME) $(CINCLUDES) -o $(TEST_OUT)
 	$(MAKE) fclean
 
 tclean: fclean
